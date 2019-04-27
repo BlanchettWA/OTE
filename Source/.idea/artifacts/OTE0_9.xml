@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OTE0.9">
+    <output-path>$PROJECT_DIR$/../exportedote</output-path>
+    <root id="archive" name="OTEDev.jar">
+      <element id="module-output" name="OTEDev" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libraries/jsyn-20171016.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
