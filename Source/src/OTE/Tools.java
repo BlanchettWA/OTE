@@ -5,9 +5,9 @@ import java.util.HashMap;
 /**
  * A class with variable and functions to make it eaisier to create programs.
  */
-public class Tools
+class Tools
 {
-    static final HashMap<String, Double> NOTEFREQ = new HashMap<String, Double>() {{
+    private static final HashMap<String, Double> NOTEFREQ = new HashMap<String, Double>() {{
         put("C-1", 8.1757989156);
         put("Db-1", 8.6619572180);
         put("D-1", 9.1770239974);
@@ -148,6 +148,148 @@ public class Tools
         put("G9", 12543.8539514160);
     }};
 
+    private static final HashMap<Integer, String> MIDINOTE = new HashMap<Integer, String>() {{
+        put(0,"C-1");
+        put(1,"Db-1");
+        put(2,"D-1");
+        put(3,"Eb-1");
+        put(4,"E-1");
+        put(5,"F-1");
+        put(6,"Gb-1");
+        put(7,"G-1");
+        put(8,"Ab-1");
+        put(9,"A-1");
+        put(10,"Bb-1");
+        put(11,"B-1");
+
+        put(12,"C0");
+        put(13,"Db0");
+        put(14,"D0");
+        put(15,"Eb0");
+        put(16,"E0");
+        put(17,"F0");
+        put(18,"Gb0");
+        put(19,"G0");
+        put(20,"Ab0");
+        put(21,"A0");
+        put(22,"Bb0");
+        put(23,"B0");
+
+        put(24,"C1");
+        put(25,"Db1");
+        put(26,"D1");
+        put(27,"Eb1");
+        put(28,"E1");
+        put(29,"F1");
+        put(30,"Gb1");
+        put(31,"G1");
+        put(32,"Ab1");
+        put(33,"A1");
+        put(34,"Bb1");
+        put(35,"B1");
+
+        put(36,"C2");
+        put(37,"Db2");
+        put(38,"D2");
+        put(39,"Eb2");
+        put(40,"E2");
+        put(41,"F2");
+        put(42,"Gb2");
+        put(43,"G2");
+        put(44,"Ab2");
+        put(45,"A2");
+        put(46,"Bb2");
+        put(47,"B2");
+
+        put(48,"C3");
+        put(49,"Db3");
+        put(50,"D3");
+        put(51,"Eb3");
+        put(52,"E3");
+        put(53,"F3");
+        put(54,"Gb3");
+        put(55,"G3");
+        put(56,"Ab3");
+        put(57,"A3");
+        put(58,"Bb3");
+        put(59,"B3");
+
+        put(60,"C4");
+        put(61,"Db4");
+        put(62,"D4");
+        put(63,"Eb4");
+        put(64,"E4");
+        put(65,"F4");
+        put(66,"Gb4");
+        put(67,"G4");
+        put(68,"Ab4");
+        put(69,"A4");
+        put(70,"Bb4");
+        put(71,"B4");
+
+        put(72,"C5");
+        put(73,"Db5");
+        put(74,"D5");
+        put(75,"Eb5");
+        put(76,"E5");
+        put(77,"F5");
+        put(78,"Gb5");
+        put(79,"G5");
+        put(80,"Ab5");
+        put(81,"A5");
+        put(82,"Bb5");
+        put(83,"B5");
+
+        put(84,"C6");
+        put(85,"Db6");
+        put(86,"D6");
+        put(87,"Eb6");
+        put(88,"E6");
+        put(89,"F6");
+        put(90,"Gb6");
+        put(91,"G6");
+        put(92,"Ab6");
+        put(93,"A6");
+        put(94,"Bb6");
+        put(95,"B6");
+
+        put(96,"C7");
+        put(97,"Db7");
+        put(98,"D7");
+        put(99,"Eb7");
+        put(100,"E7");
+        put(101,"F7");
+        put(102,"Gb7");
+        put(103,"G7");
+        put(104,"Ab7");
+        put(105,"A7");
+        put(106,"Bb7");
+        put(107,"B7");
+
+        put(108,"C8");
+        put(109,"Db8");
+        put(110,"D8");
+        put(111,"Eb8");
+        put(112,"E8");
+        put(113,"F8");
+        put(114,"Gb8");
+        put(115,"G8");
+        put(116,"Ab8");
+        put(117,"A8");
+        put(118,"Bb8");
+        put(119,"B8");
+
+        put(120,"C9");
+        put(121,"Db9");
+        put(122,"D9");
+        put(123,"Eb9");
+        put(124,"E9");
+        put(125,"F9");
+        put(126,"Gb9");
+        put(127,"G9");
+    }};
+
+
     /**
      * A function to convert standard note names into their corresponding frequency.
      * @param noteName The note to be converted, ranging from C-1 to G9 and only using flats. Example notes are Gb5, C4, A7.
@@ -155,7 +297,7 @@ public class Tools
      * @throws Exception The given note name is recgonized
      */
 
-    public static double NotetoFrequency(String noteName) throws Exception
+    static double NotetoFrequency(String noteName) throws Exception
     {
         if (NOTEFREQ.containsKey(noteName)) {
             return NOTEFREQ.get(noteName); }
@@ -163,6 +305,18 @@ public class Tools
         {
             throw new Exception(noteName + " is not a recgonized note name.");
         }
+    }
+
+    static String MiditoNote(Integer midiNum) throws Exception
+    {
+        if ((midiNum >= 0) &&(midiNum < 128))
+        {
+            return MIDINOTE.get(midiNum);
+        }
+        else
+            {
+                throw new Exception(midiNum + " is not a recgonized note name");
+            }
     }
 
 }
